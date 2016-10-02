@@ -74,17 +74,20 @@ public class Anslab1_201337859 extends javax.swing.JFrame {
         });
 
         trend_button.setText("Trend of Nucleotide Occurences");
+        trend_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                trend_buttonActionPerformed(evt);
+            }
+        });
 
         import_button.setText("Import Fasta File");
 
         output_area.setColumns(20);
         output_area.setRows(5);
-        output_area.setText("[output]");
         jScrollPane1.setViewportView(output_area);
 
         input_area.setColumns(20);
         input_area.setRows(5);
-        input_area.setText("[input]");
         input_area.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 input_areaMouseClicked(evt);
@@ -316,13 +319,17 @@ public class Anslab1_201337859 extends javax.swing.JFrame {
     }
 
     private void input_areaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_input_areaMouseClicked
-        input_area.setText("");
+     
     }//GEN-LAST:event_input_areaMouseClicked
 
     private void clear_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clear_btnActionPerformed
         output_area.setText("[input]");
         input_area.setText("[output]");
     }//GEN-LAST:event_clear_btnActionPerformed
+
+    private void trend_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trend_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_trend_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -377,29 +384,3 @@ public class Anslab1_201337859 extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 }
 
-class Codons {
-    //TTT,TTC -> Phenylalanine (F/Phe) ok
-    //TTA,TTG,CTT,CTC,CTA,CTG ->Leucine (Leu/L) ok
-    //ATT, ATC, ATA -> Isoleucine (Ile/I) ok
-    //ATG -> Methionine (Met/M) ok
-    //GTT, GTC, GTA, GTG -> Valine (Val/V) ok
-    //TCT, TCC, TCA, TCG -> Serine (Ser/S) ok
-    //CCT, CCC, CCA,CCG -> Proline (Pro/P) ok
-    //ACT, ACC, ACA, ACG -> Threonine (Thr/T) ok
-    //GCT, GCC, GCA, GCG -> Alanine ok
-    //TAT, TAC -> Tyrosine (Tyr/Y) ok
-
-    //TAA stop ocher, TAG stop amber-> Stop (Ochre then Amber)
-    //CAT, CAC -> Histidine ok
-    //CAA, CAG -> Glutamine (GIn/Q) ok
-    //AAT, AAC -> Asparagine (Asn/N)
-    //AAA, AAG -> Lysine (Lys/K)
-    //GAT, GAC -> Aspartic Acid (Asp/D)
-    //GAA, GAG -> Glutamic Acid (Glu/E)
-    //TGT, TGC -> Cysteine 
-    //TGA -> Stop Oval
-    //TGG -> Trytophan (Trp/W)
-    //CGT, CGC CGA, CGG, AGA,AGG -> Arginine (Arg/G)
-    //AGT, AGC -> Serine
-    //CGT, GGC, GGA, GGG -> Glycine 
-}

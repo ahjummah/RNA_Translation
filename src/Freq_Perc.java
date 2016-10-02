@@ -3,6 +3,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import javax.imageio.ImageIO;
 import javax.swing.JTable;
 import javax.swing.table.JTableHeader;
@@ -12,7 +13,6 @@ import javax.swing.table.JTableHeader;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author jessa
@@ -122,8 +122,7 @@ public class Freq_Perc extends javax.swing.JFrame {
         saveToImage(this.table, this.table.getTableHeader());
     }//GEN-LAST:event_export_buttonActionPerformed
 
-     private static void saveToImage(JTable table, JTableHeader header)
-    {
+    private static void saveToImage(JTable table, JTableHeader header) {
         int w = Math.max(table.getWidth(), header.getWidth());
         int h = table.getHeight() + header.getHeight();
         BufferedImage bi = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
@@ -132,17 +131,14 @@ public class Freq_Perc extends javax.swing.JFrame {
         g2.translate(0, header.getHeight());
         table.paint(g2);
         g2.dispose();
-        try
-        {
+        try {
             ImageIO.write(bi, "png", new File("tableImage.png"));
-                
-        }
-        catch(IOException ioe)
-        {
+
+        } catch (IOException ioe) {
             System.out.println("write: " + ioe.getMessage());
         }
     }
-    
+
     private void return_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_return_buttonActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_return_buttonActionPerformed
@@ -187,14 +183,11 @@ public class Freq_Perc extends javax.swing.JFrame {
         System.out.println("HERE");
         //ADD CHECK IF INPUT IS VALID
 
-        Integer[] freq = new Integer[4];
+        Double[] freq = new Double[4];
         for (int i = 0; i < freq.length; i++) {
-            freq[i] = 0;
+            freq[i] = 0.0;
         }
-        //freq[0] -> A
-        //freq[1] -> C
-        //freq[2] -> T
-        //freq[3] -> G
+        //freq[0] -> A, freq[1] -> C, freq[2] -> T, freq[3] -> G
 
         for (String line : input.split("\\n")) {
             line = line.toUpperCase();
@@ -209,7 +202,6 @@ public class Freq_Perc extends javax.swing.JFrame {
                 } else if (line.charAt(i) == 'G') {
                     freq[3]++;
                 }
-
             }
 
         }
@@ -221,13 +213,16 @@ public class Freq_Perc extends javax.swing.JFrame {
 
         //set frequency table values
         for (int i = 0; i < freq.length; i++) {
-            table.setValueAt(freq[i], i, 2);
+            table.setValueAt(freq[i].intValue(), i, 2);
         }
+
         //set percentage table values
+        DecimalFormat df = new DecimalFormat();
+        df.setMaximumFractionDigits(2);
         for (int i = 0; i < freq.length; i++) {
-            double perc = freq[i] / sum;
-            System.out.println(freq[i]+"/"+sum +"="+ perc);
-            table.setValueAt(perc, i, 3);
+            double perc = (freq[i] / sum) * 100;
+            System.out.println(freq[i] + "/" + sum + "=" + df.format(perc));
+            table.setValueAt(df.format(perc), i, 3);
 
         }
 
