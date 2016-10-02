@@ -180,9 +180,7 @@ public class Freq_Perc extends javax.swing.JFrame {
     }
 
     public void Calculate_Freq_Perc(String input) {
-        System.out.println("HERE");
         //ADD CHECK IF INPUT IS VALID
-
         Double[] freq = new Double[4];
         for (int i = 0; i < freq.length; i++) {
             freq[i] = 0.0;
@@ -221,16 +219,8 @@ public class Freq_Perc extends javax.swing.JFrame {
         df.setMaximumFractionDigits(2);
         for (int i = 0; i < freq.length; i++) {
             double perc = (freq[i] / sum) * 100;
-            System.out.println(freq[i] + "/" + sum + "=" + df.format(perc));
             table.setValueAt(df.format(perc), i, 3);
-
         }
-
-//        table.setValueAt((, 0, 3);
-//        table.setValueAt(freq[1]/sum, 1, 3);
-//        table.setValueAt(freq[2]/sum, 2, 3);
-//        table.setValueAt(freq[3]/sum, 3, 3);
-//        
     }
 
 

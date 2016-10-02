@@ -10,9 +10,14 @@ import java.util.Scanner;
  /*
 Input: 
 
-    atgaagtcagctattttaaccggtttgcttttcgtc
-    
-
+atgaagtcagctattttaaccggtttgcttttcgtc 
+atgagtaaaggagaagaacttttcactggagtcgtt 
+gaaaacatggagaacgatgaaaatattgtgtatggt 
+ggttgggctttgcggatcatgtttctacatctgtac 
+cctggggagaacctatgctatagaaagatgtggtgc 
+cccagagagatccagaccgccgtgagactgttactc 
+gagaagagaaagctgtttatccgttccatgggtgaa 
+atggagtttactttgaggcaagaggctttagttaat 
 
  */
 /**
@@ -143,8 +148,8 @@ public class Anslab1_201337859 extends javax.swing.JFrame {
                     .addComponent(expfasta_btn))
                 .addGap(15, 15, 15)
                 .addGroup(main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(translate_button)
@@ -153,7 +158,7 @@ public class Anslab1_201337859 extends javax.swing.JFrame {
                 .addGroup(main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(import_button)
                     .addComponent(freq_button))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -164,7 +169,9 @@ public class Anslab1_201337859 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(main_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(main_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
